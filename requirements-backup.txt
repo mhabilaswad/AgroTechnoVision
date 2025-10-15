@@ -1,0 +1,12 @@
+# Install dalam 2 tahap untuk avoid conflict
+
+# Stage 1: Install ML frameworks
+tensorflow>=2.15.0
+ultralytics>=8.0.0
+
+# Stage 2: Install lainnya (akan auto-adjust ke NumPy yang sudah ada)
+opencv-python-headless>=4.8.0
+pillow>=10.0.0
+flask>=3.0.0
+flask-cors>=4.0.0
+gunicorn>=21.0.0
