@@ -27,6 +27,10 @@ KEMATANGAN = {
     0: "matang", 1: "mentah", 2: "setengah-matang"
 }
 
+# Configuration - Image sizes used during training
+YOLO_IMG_SIZE = 340  # YOLO trained with imgsize 340
+CNN_IMG_SIZE = 256   # CNN trained with imgsize 256
+
 # Load models
 print("Loading models...")
 yolo_model = YOLO('model/YOLO12n.pt')
@@ -34,11 +38,34 @@ cnn_model = keras.models.load_model('model/CNN-MTL.keras')
 print("Models loaded successfully!")
 
 def preprocess_for_cnn(image):
-    """Preprocess cropped image for CNN classification"""
-    # Resize to expected input size (adjust based on your CNN input size)
-    img_resized = cv2.resize(image, (224, 224))
-    img_array = np.array(img_resized) / 255.0  # Normalize
-    img_array = np.expand_dims(img_array, axis=0)  # Add batch dimension
+    """
+    Preprocess cropped image for CNN classification
+    
+    Args:
+        image: BGR image from OpenCV (cropped fruit)
+    
+    Returns:
+        Preprocessed image array ready for CNN model
+    
+    Note:
+        - Resize to 256x256 (same as training)
+        - Normalize to [0, 1] (divide by 255.0)
+        - If your CNN used different preprocessing (e.g., ImageNet normalization),
+          adjust mean/std values here
+    """
+    # Resize to expected input size (256x256 - same as training)
+    img_resized = cv2.resize(image, (CNN_IMG_SIZE, CNN_IMG_SIZE))
+    
+    # Convert to array and normalize to [0, 1]
+    img_array = np.array(img_resized, dtype=np.float32) / 255.0
+    
+    # If you used ImageNet preprocessing during training, uncomment below:
+    # from tensorflow.keras.applications.imagenet_utils import preprocess_input
+    # img_array = preprocess_input(img_resized)
+    
+    # Add batch dimension
+    img_array = np.expand_dims(img_array, axis=0)
+    
     return img_array
 
 def classify_fruit(image):
@@ -62,8 +89,8 @@ def classify_fruit(image):
 
 def detect_and_classify(image):
     """Detect fruits using YOLO and classify each with CNN"""
-    # YOLO detection
-    results = yolo_model(image, verbose=False)
+    # YOLO detection with imgsize 340 (same as training)
+    results = yolo_model(image, imgsz=YOLO_IMG_SIZE, verbose=False)
     
     detections = []
     annotated_image = image.copy()
