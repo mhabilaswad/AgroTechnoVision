@@ -12,13 +12,16 @@ Website AI untuk mendeteksi dan mengklasifikasi buah menggunakan YOLO v12n dan C
 ## 🎯 Model yang Digunakan
 
 ### YOLO v12n (`model/YOLO12n.pt`)
+
 - Mendeteksi lokasi buah dalam gambar
 - Semua deteksi berlabel 0 (object detection saja)
 
 ### CNN Multi-Task Learning (`model/CNN-MTL.keras`)
+
 Mengklasifikasi 3 aspek buah:
 
 **1. Jenis Buah (10 kelas):**
+
 - 0: alpukat
 - 1: durian
 - 2: jeruk-siam
@@ -31,11 +34,13 @@ Mengklasifikasi 3 aspek buah:
 - 9: salak
 
 **2. Kesegaran (3 kelas):**
+
 - 0: busuk
 - 1: segar
 - 2: tidak-segar
 
 **3. Kematangan (3 kelas):**
+
 - 0: matang
 - 1: mentah
 - 2: setengah-matang
@@ -79,11 +84,13 @@ python app.py
 ### 3. Akses Website
 
 Buka browser dan akses:
+
 ```
 http://localhost:5000
 ```
 
 atau jika ingin diakses dari device lain di jaringan yang sama:
+
 ```
 http://<IP_KOMPUTER_ANDA>:5000
 ```
@@ -116,6 +123,7 @@ http://<IP_KOMPUTER_ANDA>:5000
 1. **Buat akun di Render**: https://render.com
 
 2. **Buat file `render.yaml`** di root project:
+
 ```yaml
 services:
   - type: web
@@ -129,11 +137,13 @@ services:
 ```
 
 3. **Tambahkan gunicorn ke requirements.txt**:
+
 ```bash
 echo "gunicorn==21.2.0" >> requirements.txt
 ```
 
 4. **Push ke GitHub**:
+
 ```bash
 git init
 git add .
@@ -153,9 +163,11 @@ git push -u origin main
 
 1. **Buat akun di Railway**: https://railway.app
 2. **Buat Procfile** di root project:
+
 ```
 web: gunicorn app:app
 ```
+
 3. **Push ke GitHub**
 4. **Connect repository di Railway**
 5. **Deploy otomatis**
@@ -166,10 +178,13 @@ web: gunicorn app:app
 2. **Login**: `heroku login`
 3. **Buat app**: `heroku create nama-app-anda`
 4. **Tambahkan Procfile**:
+
 ```
 web: gunicorn app:app
 ```
+
 5. **Push ke Heroku**:
+
 ```bash
 git push heroku main
 ```
@@ -185,6 +200,7 @@ git push heroku main
 ### Option 5: Google Cloud Run
 
 1. **Buat Dockerfile**:
+
 ```dockerfile
 FROM python:3.9-slim
 
@@ -199,6 +215,7 @@ CMD ["gunicorn", "-b", "0.0.0.0:8080", "app:app"]
 ```
 
 2. **Deploy**:
+
 ```bash
 gcloud run deploy fruit-detection --source . --platform managed --region asia-southeast2 --allow-unauthenticated
 ```
@@ -212,10 +229,12 @@ gcloud run deploy fruit-detection --source . --platform managed --region asia-so
 3. **Camera Access**: Untuk mode kamera, pastikan website menggunakan HTTPS (required oleh browser modern)
 
 4. **Environment Variables**: Jika perlu, set:
+
    - `FLASK_ENV=production`
    - `SECRET_KEY=<random-string>`
 
 5. **Gunicorn Config**: Untuk production, gunakan:
+
 ```bash
 gunicorn --bind 0.0.0.0:5000 --workers 2 --timeout 120 app:app
 ```
@@ -223,19 +242,23 @@ gunicorn --bind 0.0.0.0:5000 --workers 2 --timeout 120 app:app
 ## 🔧 Troubleshooting
 
 ### Kamera tidak muncul
+
 - Pastikan browser mengizinkan akses kamera
 - Website harus diakses via HTTPS atau localhost
 - Pastikan tidak ada aplikasi lain yang menggunakan kamera
 
 ### Error saat load model
+
 - Pastikan path model benar: `model/YOLO12n.pt` dan `model/CNN-MTL.keras`
 - Cek kompatibilitas versi TensorFlow dan Ultralytics
 
 ### Memory Error
+
 - Kurangi ukuran gambar input
 - Reduce batch size atau gunakan model yang lebih kecil
 
 ### Deteksi lambat
+
 - Gunakan GPU jika tersedia
 - Optimize image preprocessing
 - Reduce video frame rate untuk mode kamera

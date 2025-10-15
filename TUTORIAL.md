@@ -3,6 +3,7 @@
 ## 🎯 Untuk Anda (Mahasiswa/Developer)
 
 Anda sekarang memiliki sistem deteksi buah lengkap dengan:
+
 - ✅ Backend Flask yang powerful
 - ✅ Frontend modern dan responsif
 - ✅ Integrasi YOLO + CNN Multi-Task Learning
@@ -15,18 +16,21 @@ Anda sekarang memiliki sistem deteksi buah lengkap dengan:
 ### Opsi 1: Menggunakan Script Otomatis (TERMUDAH)
 
 **Windows:**
+
 ```bash
 # Double-click file ini:
 start.bat
 ```
 
 **Linux/Mac:**
+
 ```bash
 chmod +x start.sh
 ./start.sh
 ```
 
 Script akan otomatis:
+
 1. Cek Python
 2. Install dependencies
 3. Jalankan server
@@ -62,6 +66,7 @@ python app.py
 ### 🏆 Rekomendasi #1: RENDER (100% GRATIS)
 
 **Kenapa Render?**
+
 - ✅ Gratis selamanya (dengan limitasi)
 - ✅ Mudah setup (5 menit)
 - ✅ Auto-deploy dari GitHub
@@ -71,6 +76,7 @@ python app.py
 **Langkah-langkah:**
 
 #### 1. Push ke GitHub
+
 ```bash
 # Initialize git
 git init
@@ -84,6 +90,7 @@ git push -u origin main
 ```
 
 #### 2. Deploy di Render
+
 1. Buka https://render.com
 2. Sign up (gratis) dengan GitHub
 3. Klik **"New +"** → **"Web Service"**
@@ -97,7 +104,9 @@ git push -u origin main
 6. Klik **"Create Web Service"**
 
 #### 3. Tunggu Deploy (5-10 menit)
+
 Render akan memberikan URL seperti:
+
 ```
 https://fruit-detection-app.onrender.com
 ```
@@ -105,6 +114,7 @@ https://fruit-detection-app.onrender.com
 **✨ SELESAI! Website Anda sudah online!**
 
 **⚠️ Catatan Render Free:**
+
 - Server akan "sleep" setelah 15 menit tidak ada traffic
 - First request akan lambat (~30 detik) karena "wake up"
 - 750 jam gratis per bulan (cukup untuk 1 website 24/7)
@@ -114,6 +124,7 @@ https://fruit-detection-app.onrender.com
 ### 🥈 Rekomendasi #2: RAILWAY (Sangat Mudah)
 
 **Kenapa Railway?**
+
 - ✅ Setup paling mudah
 - ✅ $5 kredit gratis per bulan
 - ✅ Deploy dalam 1 menit
@@ -169,6 +180,7 @@ heroku open
 ### 🏅 Rekomendasi #4: GOOGLE CLOUD RUN (Powerful)
 
 **Kenapa Cloud Run?**
+
 - ✅ $300 kredit gratis (12 bulan)
 - ✅ Scalable otomatis
 - ✅ Pay per use
@@ -203,9 +215,11 @@ gcloud run deploy fruit-detection \
 ### 💼 Opsi Berbayar (Production Ready)
 
 #### 1. **AWS EC2** ($5-50/bulan)
+
 - Paling fleksibel
 - Full control
 - Butuh setup manual
+
 ```bash
 # Deploy dengan SSH ke EC2 instance
 ssh -i key.pem ubuntu@ec2-instance
@@ -216,21 +230,24 @@ gunicorn app:app
 ```
 
 #### 2. **DigitalOcean App Platform** ($5/bulan)
+
 - Mirip Heroku tapi lebih murah
 - Easy setup
 - Good documentation
-**Link:** https://www.digitalocean.com/products/app-platform
+  **Link:** https://www.digitalocean.com/products/app-platform
 
 #### 3. **Azure App Service** (Gratis 12 bulan)
+
 - $200 kredit gratis
 - Integration dengan Azure AI
-**Link:** https://azure.microsoft.com/en-us/products/app-service
+  **Link:** https://azure.microsoft.com/en-us/products/app-service
 
 #### 4. **Vercel** (Gratis untuk hobby)
+
 - Sangat cepat
 - Bagus untuk frontend
 - Perlu setup serverless
-**Link:** https://vercel.com
+  **Link:** https://vercel.com
 
 ---
 
@@ -271,12 +288,14 @@ gunicorn app:app
 ## 🧪 Cara Testing Setelah Deploy
 
 ### Test 1: Homepage
+
 ```
 Buka: https://your-app-url.com
 Expected: Website dengan 2 tombol (Upload & Kamera)
 ```
 
 ### Test 2: Upload Gambar
+
 ```
 1. Klik "Upload Gambar"
 2. Upload foto buah (pisang, mangga, dll)
@@ -284,6 +303,7 @@ Expected: Website dengan 2 tombol (Upload & Kamera)
 ```
 
 ### Test 3: Kamera (Butuh HTTPS)
+
 ```
 1. Klik "Kamera Real-time"
 2. Klik "Mulai Kamera"
@@ -297,14 +317,14 @@ Expected: Website dengan 2 tombol (Upload & Kamera)
 
 ## 📊 Perbandingan Platform Hosting
 
-| Platform | Gratis? | Kemudahan | Performa | Rekomendasi |
-|----------|---------|-----------|----------|-------------|
-| **Render** | ✅ 750h/bulan | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | **Best untuk Tugas Akhir** |
-| **Railway** | ✅ $5 kredit | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | Best untuk Development |
-| **Heroku** | ❌ $5/bulan | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | Good tapi bayar |
-| **PythonAnywhere** | ✅ Terbatas | ⭐⭐⭐ | ⭐⭐ | OK untuk demo simple |
-| **Google Cloud Run** | ✅ $300 kredit | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Best untuk Production |
-| **AWS EC2** | ✅ 12 bulan | ⭐⭐ | ⭐⭐⭐⭐⭐ | Butuh skill DevOps |
+| Platform             | Gratis?        | Kemudahan  | Performa   | Rekomendasi                |
+| -------------------- | -------------- | ---------- | ---------- | -------------------------- |
+| **Render**           | ✅ 750h/bulan  | ⭐⭐⭐⭐⭐ | ⭐⭐⭐     | **Best untuk Tugas Akhir** |
+| **Railway**          | ✅ $5 kredit   | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐   | Best untuk Development     |
+| **Heroku**           | ❌ $5/bulan    | ⭐⭐⭐⭐   | ⭐⭐⭐⭐   | Good tapi bayar            |
+| **PythonAnywhere**   | ✅ Terbatas    | ⭐⭐⭐     | ⭐⭐       | OK untuk demo simple       |
+| **Google Cloud Run** | ✅ $300 kredit | ⭐⭐⭐     | ⭐⭐⭐⭐⭐ | Best untuk Production      |
+| **AWS EC2**          | ✅ 12 bulan    | ⭐⭐       | ⭐⭐⭐⭐⭐ | Butuh skill DevOps         |
 
 ---
 
@@ -313,12 +333,14 @@ Expected: Website dengan 2 tombol (Upload & Kamera)
 Jika deploy production (bukan hanya tugas akhir):
 
 ### 1. Add Environment Variables
+
 ```python
 # Jangan hardcode, gunakan env vars
 SECRET_KEY = os.environ.get('SECRET_KEY')
 ```
 
 ### 2. Rate Limiting
+
 ```python
 from flask_limiter import Limiter
 
@@ -331,6 +353,7 @@ def upload():
 ```
 
 ### 3. Add Authentication
+
 ```python
 from flask_httpauth import HTTPBasicAuth
 
@@ -343,6 +366,7 @@ def verify(username, password):
 ```
 
 ### 4. Monitoring
+
 - Gunakan Sentry untuk error tracking
 - Setup logging dengan Papertrail
 - Monitor dengan New Relic / DataDog
@@ -352,32 +376,42 @@ def verify(username, password):
 ## ❓ FAQ
 
 ### Q: Berapa biaya hosting?
+
 A: **Gratis** jika pakai Render/Railway/PythonAnywhere. Cukup untuk tugas akhir dan portfolio.
 
 ### Q: Apakah bisa diakses dari HP?
+
 A: **Ya!** Setelah deploy online, bisa diakses dari device apapun dengan internet.
 
 ### Q: Kamera tidak jalan di HP?
+
 A: Pastikan:
+
 1. Website pakai HTTPS (hosting gratis otomatis HTTPS)
 2. Browser izinkan akses kamera
 3. HP support kamera web (semua HP modern support)
 
 ### Q: Model terlalu besar untuk hosting gratis?
+
 A: Tips:
+
 1. Compress model dengan TensorFlow Lite
 2. Gunakan quantization
 3. Atau pakai hosting dengan limit lebih besar (Google Cloud)
 
 ### Q: Berapa lama proses deploy?
-A: 
+
+A:
+
 - Render: 5-10 menit
 - Railway: 2-5 menit
 - Heroku: 3-7 menit
 - Google Cloud Run: 5-15 menit
 
 ### Q: Website lambat?
+
 A: Normal untuk hosting gratis karena:
+
 1. Limited resources
 2. Cold start (server sleep)
 3. Shared infrastructure
@@ -424,6 +458,7 @@ Solusi: Upgrade ke paid plan atau optimize code.
 ## 🎉 Selamat!
 
 Anda sekarang punya:
+
 - ✅ Working fruit detection system
 - ✅ Modern web interface
 - ✅ Production-ready code
@@ -431,6 +466,7 @@ Anda sekarang punya:
 - ✅ Complete documentation
 
 **Next Steps:**
+
 1. Test locally dulu
 2. Push ke GitHub
 3. Deploy ke Render (paling mudah)
@@ -444,6 +480,7 @@ Anda sekarang punya:
 ## 📞 Need Help?
 
 Jika ada error atau pertanyaan:
+
 1. Cek error di terminal/console
 2. Baca README.md
 3. Cek QUICKSTART.md

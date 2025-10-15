@@ -3,16 +3,19 @@
 ## ⚡ Jalankan di Lokal (5 Menit)
 
 ### 1️⃣ Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
 ### 2️⃣ Jalankan Server
+
 ```bash
 python app.py
 ```
 
 ### 3️⃣ Buka Browser
+
 ```
 http://localhost:5000
 ```
@@ -40,6 +43,7 @@ git push -u origin main
 2. Klik **"New +"** → **"Web Service"**
 3. Connect GitHub repository Anda
 4. Isi konfigurasi:
+
    - **Name**: fruit-detection-app
    - **Environment**: Python 3
    - **Build Command**: `pip install -r requirements.txt`
@@ -49,6 +53,7 @@ git push -u origin main
 5. Klik **"Create Web Service"**
 
 ⏰ **Tunggu 5-10 menit**, Render akan:
+
 - Build aplikasi
 - Install dependencies
 - Deploy online
@@ -63,6 +68,7 @@ Website Anda sudah online dan bisa diakses dari mana saja!
 ## 🔥 Deploy Alternatif (Pilih Salah Satu)
 
 ### Railway (Sangat Mudah)
+
 ```bash
 # Install Railway CLI
 npm i -g @railway/cli
@@ -75,6 +81,7 @@ railway up
 ```
 
 ### Heroku
+
 ```bash
 # Install Heroku CLI
 # Download dari: https://devcenter.heroku.com/articles/heroku-cli
@@ -90,6 +97,7 @@ git push heroku main
 ```
 
 ### Google Cloud Run
+
 ```bash
 # Install gcloud CLI
 # Download dari: https://cloud.google.com/sdk/docs/install
@@ -110,11 +118,13 @@ gcloud run deploy fruit-detection \
 ## 📱 Test Aplikasi
 
 ### Test Upload Gambar:
+
 1. Klik "Upload Gambar"
 2. Pilih foto buah
 3. Lihat hasil deteksi!
 
 ### Test Kamera Real-time:
+
 1. Klik "Kamera Real-time"
 2. Klik "Mulai Kamera"
 3. Izinkan akses kamera
@@ -125,12 +135,15 @@ gcloud run deploy fruit-detection \
 ## ⚠️ Troubleshooting
 
 ### Error: "No module named 'cv2'"
+
 ```bash
 pip install opencv-python
 ```
 
 ### Error: "Model not found"
+
 Pastikan struktur folder:
+
 ```
 INFERENSI/
   ├── model/
@@ -140,10 +153,12 @@ INFERENSI/
 ```
 
 ### Kamera tidak muncul
+
 - Gunakan HTTPS atau localhost
 - Izinkan akses kamera di browser
 
 ### Deploy gagal (Out of Memory)
+
 - Gunakan hosting dengan RAM lebih besar
 - Atau optimize model size
 
@@ -161,6 +176,7 @@ INFERENSI/
 ## 📞 Butuh Bantuan?
 
 Jika ada masalah, cek:
+
 1. README.md untuk dokumentasi lengkap
 2. Requirements.txt untuk dependencies
 3. Console/Terminal untuk error messages
