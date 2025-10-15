@@ -1,0 +1,11 @@
+# Alternative requirements jika TF 2.20 gagal
+# Gunakan versi tanpa pin (auto latest compatible)
+
+flask>=3.0.0
+opencv-python-headless>=4.8.0
+tensorflow>=2.20.0
+ultralytics>=8.0.0
+numpy<2.0.0,>=1.26.0
+pillow>=10.0.0
+flask-cors>=4.0.0
+gunicorn>=21.0.0
